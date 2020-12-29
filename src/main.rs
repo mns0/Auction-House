@@ -41,9 +41,11 @@ fn main() {
         )
         .get_matches();
 
+    //Initalize Auction State
     let at: AuctionType;
-    let num_bidders: u16;
-    let bid_floor: f32;
+    let mut num_bidders: u16 = 0;
+    let mut bid_floor: f32 = 0.0;
+    let mut item: String = String::from("");
 
     if let Some(auction_type) = matches.value_of("Auction-Type") {
         at = auction_type.parse().unwrap();
@@ -58,20 +60,12 @@ fn main() {
     if let Some(nb) = matches.value_of("Num-Bidders") {
         num_bidders = nb.parse::<u16>().unwrap();
     }
-    if let Some(bf) = matches.value_of("Bid-Floor") {
-        bid_floor = bf.parse::<f32>().unwrap();
+    if let Some(i) = matches.value_of("Item") {
+        item = i.parse::<String>().unwrap();
     }
     if let Some(bf) = matches.value_of("Bid-Floor") {
         bid_floor = bf.parse::<f32>().unwrap();
     }
 
-    println!("{:#?}", (at, num_bidders, bid_floor));
-
-    // match matches.subcommand() {
-    //     ("at", Some(_matches)) => {
-    //         eprintln!("unimplemented");
-    //         exit(1);
-    //     }
-    //     _ => unreachable!(),
-    // }
+    println!("{:#?}", (at, num_bidders, bid_floor, item));
 }
