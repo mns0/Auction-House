@@ -1,19 +1,21 @@
-use super::status::Status;
+//use super::status::Status;
 
 pub struct Bidder {
-    status: Status,
+    status: bool,
     value: f32,
     signal: f32,
     sealed: bool,
+    strategy: bool,
 }
 
 impl Bidder {
-    pub fn new(status: Status, value: f32, signal: f32, sealed: bool) -> Self {
+    pub fn new(status: bool, value: f32, signal: f32, sealed: bool, strategy: bool) -> Self {
         Self {
             status,
             value,
             signal,
             sealed,
+            strategy,
         }
     }
 

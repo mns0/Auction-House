@@ -23,6 +23,9 @@ impl AuctionHouse {
     pub fn run(self) {
         //Spawn a set of bidders
         let bidder_vec: Vec<Bidder> = Vec::new();
+        for i in 0..self.num_bidders {
+            bidder_vec.push(Bidder::new(false, 0.0, 0.0, true, true))
+        }
 
         unimplemented!()
     }
