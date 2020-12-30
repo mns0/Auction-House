@@ -1,12 +1,14 @@
 #![allow(dead_code)]
 #![allow(non_snake_case)]
 
-pub use auction_type::AuctionType;
+use auction_house::AuctionHouse;
+use auction_type::AuctionType;
 
 use clap::{App, Arg};
 use std::env;
 use std::process::exit;
 
+mod auction_house;
 mod auction_type;
 
 fn main() {
@@ -66,6 +68,9 @@ fn main() {
     if let Some(bf) = matches.value_of("Bid-Floor") {
         bid_floor = bf.parse::<f32>().unwrap();
     }
+
+    let init_auction_house = AuctionHouse::new(num_bidders, item, at, bid_floor);
+    init_auction_house.run();
 
     println!("{:#?}", (at, num_bidders, bid_floor, item));
 }
