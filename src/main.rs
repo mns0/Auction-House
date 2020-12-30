@@ -8,6 +8,7 @@ use clap::{App, Arg};
 use std::env;
 use std::process::exit;
 
+mod agents;
 mod auction_house;
 mod auction_type;
 

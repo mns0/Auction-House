@@ -1,33 +1,31 @@
-use super::Status
+use super::status::Status;
 
-
-struct bidders {
+pub struct Bidder {
     status: Status,
     value: f32,
-    signal: f32
-    sealed: bool
+    signal: f32,
+    sealed: bool,
 }
 
-
-impl bidder {
+impl Bidder {
     pub fn new(status: Status, value: f32, signal: f32, sealed: bool) -> Self {
-        Self {status, value, signal, sealed }
+        Self {
+            status,
+            value,
+            signal,
+            sealed,
+        }
     }
 
-    pub fn evaluate_bid (self) {
+    pub fn evaluate_bid(self) {
         unimplemented!()
     }
 
-    pub fn assess_bids (self) {
+    pub fn assess_bids(self) {
         unimplemented!()
     }
 
-
-    pub fn submit_bid (self) {
+    pub fn submit_bid(self) {
         unimplemented!()
     }
-
-
-
-
 }

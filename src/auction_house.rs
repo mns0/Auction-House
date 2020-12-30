@@ -1,4 +1,7 @@
+use crate::agents::bidders;
+
 use super::AuctionType;
+use bidders::Bidder;
 
 pub struct AuctionHouse {
     num_bidders: u16,
@@ -18,6 +21,9 @@ impl AuctionHouse {
     }
 
     pub fn run(self) {
+        //Spawn a set of bidders
+        let bidder_vec: Vec<Bidder> = Vec::new();
+
         unimplemented!()
     }
 }
