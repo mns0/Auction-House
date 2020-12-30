@@ -52,11 +52,11 @@ fn main() {
     if let Some(auction_type) = matches.value_of("Auction-Type") {
         at = auction_type.parse().unwrap();
     } else {
-        println!("Didn't match the Auction type\n");
+        println!("Didn't match the Auction type");
         println!("Auction Types Avaliable:\n");
-        println!("FirstPrice\n");
-        println!("SecondPrice\n");
-        println!("AllPay\n");
+        println!("FirstPrice");
+        println!("SecondPrice");
+        println!("AllPay");
         exit(1);
     }
     if let Some(nb) = matches.value_of("Num-Bidders") {
@@ -72,5 +72,5 @@ fn main() {
     let init_auction_house = AuctionHouse::new(num_bidders, item, at, bid_floor);
     init_auction_house.run();
 
-    println!("{:#?}", (at, num_bidders, bid_floor, item));
+    //println!("{:#?}", (at, num_bidders, bid_floor, item));
 }

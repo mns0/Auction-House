@@ -4,6 +4,8 @@ use std::str::FromStr;
 //Auction Status
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub enum AuctionType {
+    English,
+    Dutch,
     FirstPrice,
     SecondPrice,
     AllPay,
@@ -13,6 +15,8 @@ pub enum AuctionType {
 impl AuctionType {
     pub fn reason_phrase(&self) -> &str {
         match self {
+            Self::English => "English Auction",
+            Self::Dutch => "Dutch Auction",
             Self::FirstPrice => "Spawning a First Price, Sealed Bid Auction",
             Self::SecondPrice => "Spawning a Second Price, Sealed Bid Auction",
             Self::AllPay => "Spawning a Second Price, Sealed Bid Auction",
@@ -25,6 +29,8 @@ impl FromStr for AuctionType {
 
     fn from_str(input: &str) -> Result<AuctionType, Self::Err> {
         match input {
+            "English" => Ok(AuctionType::English),
+            "Dutch" => Ok(AuctionType::Dutch),
             "FirstPrice" => Ok(AuctionType::FirstPrice),
             "SecondPrice" => Ok(AuctionType::SecondPrice),
             "AllPay" => Ok(AuctionType::AllPay),
